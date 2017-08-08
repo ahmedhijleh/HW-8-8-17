@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Giphy Homework</title>
+</head>
+
+<body>
+ <style type="text/css">
+    button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    }
+  </style>
+  <form id="movie-form">
+      <label for="option-input">Add Giphy !!</label>'Mov'
+      <input type="text" id="input"><br>
+        <div id="buttons-view"></div>
+          <input id="add-giphy" type="submit" value="Add Giphy">
+    </form>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  <button id="cat">Cat </button>
+  <button id="dog">Dog </button>
+  <div id="images">
+  </div>
+  
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    //
+    $("#add-giphy").on("click", function addgiphys() {
+      $ var option=(input.val);
+          var giphys=["cat","dog","bird","lion"];
+           var queryURL = ("http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=c"+option);    
+         
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+        giphys=push(option);
+      })
+
+
+
+ for (var i = 0; i < giphys.length; i++) {
+
+          var add = $("<button>");
+          
+          add.addClass("giphys");
+         
+          a.attr("data-name", giphys[i]);
+          
+          a.text(giphys[i]);
+       
+          $("#add-giphy").prepend(add);
+        }
+
+      
+      .done(function(response) {
+
+        var imageurl = response.data.image_original_url;
+
+        var optionimage = $("<img>");
+        optionimage.attr("src", imageUrl);
+        optionimage.attr("alt", "option image");
+
+        //
+        $("#images").prepend(catImage);
+      });
+
+     $(document).on("click", ".option", addgiphys);
+     
+});
+
+
+
+  </script>
+</body>
+
+</html>
